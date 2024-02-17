@@ -1,0 +1,73 @@
+.weather h1 {
+  font-family: "Gabarito", sans-serif;
+  padding-top: 10px;
+  font-size: 35px;
+  font-weight: 500;
+  line-height: 47px;
+}
+.weather p {
+  color: #212529;
+  font-size: 15px;
+  font-family: "Gabarito", sans-serif;
+  font-weight: 200;
+}
+.weather ul {
+  margin: 0;
+  padding: 0;
+  color: #434a52;
+}
+.weather li {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Gabarito", sans-serif;
+  font-size: 15px;
+  line-height: 21px;
+  font-weight: 300;
+}
+
+.weather img {
+  margin-right: 5px;
+  position: relative;
+  top: 12px;
+}
+
+.today-weather {
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 35px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+}
+.search-box {
+  max-width: 700px;
+  padding: 35px 0px 5px;
+  margin: auto;
+}
+
+.search-box input {
+  border-radius: 30px;
+  margin: auto;
+}
+
+.weather-description {
+  text-align: right;
+  padding-top: 15px;
+}
+.weather-description p {
+  font-weight: 500;
+  font-size: 20px;
+}
+.weather-description strong {
+  font-weight: 500;
+}
+
+.today-temp {
+  text-align: center;
+  padding-top: 10px;
+  font-size: 50px;
+  margin-top: 20px;
+  line-height: 50px;
+  position: relative;
+  top: 20px;
+}

@@ -1,10 +1,11 @@
 import React from "react";
+import axios from "axios";
 import "./Weather.css";
 
 export default function Weather() {
   return (
     <div className="weather">
-      <div className="search">
+      <div className="search-box">
         <form>
           <div className="row">
             <div className="col-10">
@@ -12,10 +13,15 @@ export default function Weather() {
                 type="search"
                 placeholder="Enter a City..."
                 className="form-control"
+                autoFocus="on"
               />
             </div>
             <div className="col-2">
-              <input type="submit" value="Search" className="btn btn-primary" />
+              <input
+                type="submit"
+                value="Search"
+                className="btn btn-primary w-100"
+              />
             </div>
           </div>
         </form>
@@ -40,13 +46,13 @@ export default function Weather() {
                   src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
                   alt="Cloudy"
                 />
-                <span>10</span>
-              </strong>
-              °C | °F
+                <span className="today-temp">10</span>
+              </strong>{" "}
+              <span className="unit">°C | °F</span>
             </p>
           </div>
           <div className="col-3">
-            <div>
+            <div className="weather-description">
               <p>Cloudy</p>
               <ul>
                 <li>
