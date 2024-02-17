@@ -1,71 +1,100 @@
-import React from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import "./Weather.css";
 
-export default function Weather() {
-  return (
-    <div className="weather">
-      <div className="search-box">
-        <form>
-          <div className="row">
-            <div className="col-10">
-              <input
-                type="search"
-                placeholder="Enter a City..."
-                className="form-control"
-                autoFocus="on"
-              />
-            </div>
-            <div className="col-2">
-              <input
-                type="submit"
-                value="Search"
-                className="btn btn-primary w-100"
-              />
-            </div>
-          </div>
-        </form>
-      </div>
-      <div className="today-weather">
-        <div className="row">
-          <div className="col-4">
-            <h1>London</h1>
-            <ul>
-              <li>
-                <strong>Monday, Feb 19</strong>
-              </li>
-              <li>
-                <span>Last updated 15:02 </span>
-              </li>
-            </ul>
-          </div>
-          <div className="col-5">
-            <p>
-              <strong>
-                <img
-                  src="https://ssl.gstatic.com/onebox/weather/64/cloudy.png"
-                  alt="Cloudy"
+export default function Weather(props) {
+  const [ready, setReady] = useState(false);
+  const [weatherData, setWeatherData] = useState({ ready: false });
+  function handleResponse(response) {
+    console.log(response.data);
+    setWeatherData({
+      ready: true,
+      temperature: response.data.temperature.current,
+      wind: response.data.wind.speed,
+      humidity: response.data.temperature.humidity,
+      city: response.data.city,
+      description: response.data.condition.description,
+      iconUrl: "https://ssl.gstatic.com/onebox/weather/64/cloudy.png",
+      iconDescription: response.data.condition.description,
+      weatherDate: "Monday, Feb 19",
+      weatherTime: "15:02",
+    });
+    setReady(true);
+  }
+
+  if (weatherData.ready) {
+    return (
+      <div className="weather">
+        <div className="search-box">
+          <form>
+            <div className="row">
+              <div className="col-10">
+                <input
+                  type="search"
+                  placeholder="Enter a City..."
+                  className="form-control"
+                  autoFocus="on"
                 />
-                <span className="today-temp">10</span>
-              </strong>{" "}
-              <span className="unit">°C | °F</span>
-            </p>
-          </div>
-          <div className="col-3">
-            <div className="weather-description">
-              <p>Cloudy</p>
+              </div>
+              <div className="col-2">
+                <input
+                  type="submit"
+                  value="Search"
+                  className="btn btn-primary w-100"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <div className="today-weather">
+          <div className="row">
+            <div className="col-4">
+              <h1>{weatherData.city}</h1>
               <ul>
                 <li>
-                  <strong>Humidity</strong> 91%
+                  <strong>{weatherData.weatherDate}</strong>
                 </li>
                 <li>
-                  <strong>Wind</strong> 2mph
+                  <span>Last updated {weatherData.weatherTime} </span>
                 </li>
               </ul>
+            </div>
+            <div className="col-5">
+              <p>
+                <strong>
+                  <img
+                    src={weatherData.iconUrl}
+                    alt={weatherData.iconDescription}
+                  />
+                  <span className="today-temp">
+                    {Math.round(weatherData.temperature)}
+                  </span>
+                </strong>{" "}
+                <span className="unit">°C | °F</span>
+              </p>
+            </div>
+            <div className="col-3">
+              <div className="weather-description">
+                <p className="text-capitalize">{weatherData.description}</p>
+                <ul>
+                  <li>
+                    <strong>Humidity:</strong> {weatherData.humidity}%
+                  </li>
+                  <li>
+                    <strong>Wind:</strong> {Math.round(weatherData.wind)} mph
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  } else {
+    const apikey = "0622tcaa31a9d02f3oa3ff0e63b0bb64";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${props.defaultCity}&key=${apikey}&units=metric`;
+    axios.get(apiUrl).then(handleResponse);
+
+    return "Loading...";
+  }
 }
