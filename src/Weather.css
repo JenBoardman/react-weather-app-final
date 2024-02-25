@@ -4,9 +4,10 @@
   font-size: 35px;
   font-weight: 500;
   line-height: 47px;
+  color: #dadddf;
 }
 .weather p {
-  color: #212529;
+  color: #dadddf;
   font-size: 15px;
   font-family: "Gabarito", sans-serif;
   font-weight: 200;
@@ -14,7 +15,7 @@
 .weather ul {
   margin: 0;
   padding: 0;
-  color: #434a52;
+  color: #9ea0a1;
 }
 .weather li {
   list-style: none;
@@ -36,7 +37,7 @@
   max-width: 700px;
   margin: 30px auto;
   padding: 35px;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(15, 15, 15, 0.7);
   border-radius: 15px;
 }
 .search-box {
