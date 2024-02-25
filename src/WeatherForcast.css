@@ -1,0 +1,17 @@
+.WeatherForcast {
+  text-align: center;
+  font-family: "Gabarito", sans-serif;
+}
+
+.temperatureMax {
+  font-weight: 700;
+}
+
+.temperatureMin {
+  font-weight: 500;
+  opacity: 0.7;
+}
+.forcastDay {
+  font-size: 20px;
+  margin: 5px;
+}
