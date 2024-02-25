@@ -1,8 +1,12 @@
 footer .signiture {
-  color: #212529;
-  font-size: 13px;
+  color: rgb(231, 231, 231);
+  text-shadow: 1px 1px rgb(20, 20, 20);
+  font-size: 14px;
   font-family: "Gabarito", sans-serif;
   font-weight: 200;
   text-align: center;
   margin-top: 25px;
+}
+footer a {
+  color: rgb(162, 203, 241);
 }

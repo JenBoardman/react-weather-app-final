@@ -1,6 +1,10 @@
 .WeatherForcast {
+  max-width: 700px;
   text-align: center;
   font-family: "Gabarito", sans-serif;
+  color: rgb(216, 214, 214);
+  margin: 0 auto;
+  text-shadow: 1px 1px rgb(26, 26, 26);
 }
 
 .temperatureMax {
@@ -9,7 +13,7 @@
 
 .temperatureMin {
   font-weight: 500;
-  opacity: 0.7;
+  opacity: 0.95;
 }
 .forcastDay {
   font-size: 20px;

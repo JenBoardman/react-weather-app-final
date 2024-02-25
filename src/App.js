@@ -2,7 +2,7 @@ import React from "react";
 import "./App.css";
 import Weather from "./Weather";
 import Footer from "./Footer";
-import background from "./images/misty-lake.jpg";
+import background from "./images/forest.jpg";
 
 export default function App() {
   return (
